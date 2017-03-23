@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="scripts/jquery-3.1.1.js"></script>
+		<script type="text/javascript">
+			var text;
+			var option;
+			$(document).ready(function(){
+				$("#form").submit(function(event){
+					event.preventDefault();
+					text=$("#textbox").val();
+					option=$("#drop").val();
+					$.post( "/", { voice: option, text: text } );
+
+					console.log(text);
+					console.log(option);
+				});
+			})
+		</script>
+	</head>
+	<body>
+
+		<form id="form">
+	  	Text: <br>
+			<textArea rows="4" name="text" id="textbox">This is the example text.</textArea>
+			<br><br>Voice<br>
+			<select name="options" id="drop">
+				<option value="Tessa">Tessa</option>
+				<option value="two">Option 2</option>
+				<option value="three">Option 3</option>
+			</select>
+			<br><br><input type="submit" value="Submit"></input>
+		</form>
+</body>
+</html>
