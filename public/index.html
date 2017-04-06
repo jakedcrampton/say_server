@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script src="scripts/jquery-3.1.1.js"></script>
-		<script type="text/javascript">
-			var text;
-			var option;
-			$(document).ready(function(){
-				$("#form").submit(function(event){
-					event.preventDefault();
-					text=$("#textbox").val();
-					option=$("#drop").val();
-					$.post( "/", { voice: option, text: text } );
 
-					console.log(text);
-					console.log(option);
-				});
-			})
+	<head>
+		<link rel="stylesheet" type ="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script
+		  src="https://code.jquery.com/jquery-3.2.1.js"
+		  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+		  crossorigin="anonymous">
+		</script>
+		<script type="text/javascript" src="scripts/javascript.js">
 		</script>
 	</head>
-	<body>
 
-		<form id="form">
-	  	Text: <br>
-			<textArea rows="4" name="text" id="textbox">This is the example text.</textArea>
-			<br><br>Voice<br>
-			<select name="options" id="drop">
-				<option value="Tessa">Tessa</option>
-				<option value="two">Option 2</option>
-				<option value="three">Option 3</option>
-			</select>
-			<br><br><input type="submit" value="Submit"></input>
-		</form>
-</body>
+	<body>
+		<article class="container">
+			<form id="form">
+
+				<div class="form-group">
+					<label for="textbox">Text:</label>
+					<input type="text" class="form-control" id="textbox" placeholder="Try Me."></input>
+				</div>
+
+				<div class="form-group">
+					<label for="drop">Voice</label>
+					<select class="form-control" name="options" id="drop">
+						<option value="Tessa">Tessa</option>
+						<option value="two">Option 2</option>
+						<option value="three">Option 3</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<input class="btn btn-primary" type="submit" value="Submit"></input>
+				</div>
+
+			</form>
+		</article>
+	</body>
 </html>

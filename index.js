@@ -10,8 +10,9 @@ app.use(express.static('public'));
 app.post('/', function (req, res) {
    console.log("Got a POST request for the homepage");
 	 console.log(req.body);
-	 var voice=req.body.voice;
-	 var text=req.body.text;
+	 var voice="\""+req.body.voice.replace(/\W/g,"")+"\"";
+	 var text="\""+req.body.text.replace(/\W/g,"")+"\"";
+	 console.log(text);
 
 	 var cmd = 'say -v '+voice+' '+text;
 
