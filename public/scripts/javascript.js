@@ -2,10 +2,12 @@ var text;
 var option;
 $(document).ready(function() {
 
-    $.get('/users', {}, function success(data) {
-        console.log(data);
-        for (var i = 0; i < data.length; i++) {
-            $("#drop").append(data[i]);
+    $.get('/users', {}, function success(results) {
+        console.log(results);
+        for (var i = 0; i < results.length; i++) {
+            var optionString = '<option value=\"' + results[i].user_id + '\">' + results[i].name + '</option>';
+
+            $("#drop").append(optionString);
         }
     });
 

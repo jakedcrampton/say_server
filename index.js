@@ -18,11 +18,7 @@ app.get('/users', function(req, res) {
     var selectStatement = 'SELECT * FROM users';
     var options = [];
     connection.query(selectStatement, function(error, results, fields) {
-        for (var i = 0; i < results.length; i++) {
-            var optionString = '<option value=\"' + results[i].user_id + '\">' + results[i].name + '</option>';
-            options.push(optionString);
-        }
-        res.send(options);
+        res.send(results);
     })
 
 })
