@@ -5,7 +5,7 @@ $(document).ready(function() {
     $.get('/users', {}, function success(results) {
         console.log(results);
         for (var i = 0; i < results.length; i++) {
-            var optionString = '<option value=\"' + results[i].user_id + '\">' + results[i].name + '</option>';
+            var optionString = '<option value=\"' + results[i].uid + '\">' + results[i].name + '</option>';
 
             $("#drop").append(optionString);
         }
