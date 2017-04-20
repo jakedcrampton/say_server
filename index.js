@@ -33,7 +33,6 @@ var User = sequelize.define('users', {
 var app = express();
 
 app.get('/users', function(req, res) {
-    var selectStatement = 'SELECT * FROM users';
     User.findAll().then(function(results) {
         res.send(results);
     })
